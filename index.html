@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title></title>
+<link type="text/css" rel="stylesheet" href="stylesheet.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<div id="header">
+<h3>Broadcast</h3>
+</div>
+<div class="navbar">
+  <a href="">Home</a>
+  <a href="">Category</a>
+  <a href="">Options</a>
+  <a href="">About Us</a>
+  <input type="text" placeholder="Search.."> 
+     
+ 
+
+
+</div>
+
+<?php
+ 	$con=mysqli_connect("localhost","root","password","youtube");
+ 	$sql="SELECT * FROM video";
+ 	$result_set=mysqli_query($con,$sql);
+ 	while($row=mysqli_fetch_array($result_set))
+ 	{
+	 	$pat ="upload/"; 
+	 	$pat1 ="http://localhost/ET_DB/upload/";
+	 	$path = $row['vtittle'];
+	    $vid = $pat1.$path
+  ?>
+    <tr>
+			
+        <td>
+
+			<embed src="<?php echo $vid ?>">
+			<video width='320' height='240' controls> <source src="<?php echo $vid ?>" type='video/mp4'>Your browser does not support the video tag.</source></video>
+			<video width="320" height="240" controls> <source src="upload/How To Host A PHP Website From Your Home Computer (Localhost).mp4" type="video/mp4">Your browser does not support the video tag.</source></video>
+		</td>
+    </tr>
+        
+ <?php
+ }
+ ?>
+
+
+
+
+
+
+
+
+<div id="footer">
+<ul>
+ <li><a href="">About us</a></li>
+ <li><a href="">Help</a></li>
+ <li><a href="">Career</a></li>
+ <li><a href="">Contact us</a></li>
+</ul>
+&copy 2019 headsup.com All rights reserved.
+</div>
+
+<script src="jquery-3.4.1.js"></script>
+
+</body>
+
+</html>
